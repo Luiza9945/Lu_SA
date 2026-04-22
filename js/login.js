@@ -22,6 +22,7 @@ function validarLogin(event) {
     console.log('Usuário encontrado:', usuario);
     
     if (usuario) {
+        localStorage.setItem('currentUser', JSON.stringify(usuario));
         window.location.href = "home.html"
     } else {
         alert(" Email ou senha incorretos!")

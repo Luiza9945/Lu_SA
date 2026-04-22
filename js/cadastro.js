@@ -1,4 +1,5 @@
 let nome = document.querySelector("#nome")
+let usuario = document.querySelector("#usuario")
 let email = document.querySelector("#email")
 let senha = document.querySelector("#senha")
 let confirmarSenha = document.querySelector("#confirmarSenha")
@@ -15,6 +16,7 @@ function validar() {
     const erros = []
     
     if (nome.value.length < 3) erros.push("Nome: 3+ chars")
+    if (!usuario.value || usuario.value.length < 5 || !/^[a-zA-Z0-9._-]+$/.test(usuario.value)) erros.push("Usuário: 5+ chars, só letras/números/_-.")
     if (!email.value.includes('@')) erros.push("Email: precisa @")
     if (senha.value.length < 8) erros.push("Senha: 8+ chars")
     if (senha.value !== confirmarSenha.value) erros.push("Senhas diferentes")
@@ -23,6 +25,7 @@ function validar() {
         // Criar objeto do novo usuário
         const novoUsuario = {
             nome: nome.value,
+            usuario: usuario.value,
             email: email.value,
             senha: senha.value
         };
@@ -43,6 +46,7 @@ function validar() {
         
         // Limpar campos
         nome.value = '';
+        usuario.value = '';
         email.value = '';
         senha.value = '';
         confirmarSenha.value = '';
