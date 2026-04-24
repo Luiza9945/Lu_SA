@@ -15,8 +15,13 @@
         <div class="voltar">
             <a href="home.html"><i class="bi bi-arrow-left "></i></a>
         </div>
-        <div class="opcoes">
-            <i class="bi bi-three-dots-vertical "></i>
+    <div class="opcoes dropdown">
+            <i class="bi bi-three-dots-vertical" id="menu-icon" data-bs-toggle="dropdown" aria-expanded="false"></i>
+            <!-- Menu dropdown com opções do perfil -->
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="menu-icon">
+                <li><button class="dropdown-item" type="button" onclick="abrirEditarModal()">Editar perfil</button></li>
+                <li><button class="dropdown-item text-danger" type="button" onclick="abrirApagarModal()">Apagar perfil</button></li>
+            </ul>
         </div>
     </div>
     <div class="linha2 text-center ">
@@ -25,8 +30,8 @@
         </div>
     </div>
     <div class="linha3 text-center">
-        <h1 class="mb-0">Nicole</h1>
-        <p>@n1c0le_s_nasc1ment0</p>
+        <h1 class="mb-0">Usuário</h1>
+        <p>@usuario</p>
     </div>
 
    
@@ -62,11 +67,60 @@
             <a href="perfil-art.html"><i class="bi bi-person-fill "></i></a>
         </div>
     </footer>
-    <!-- Lightbox Modal -->
-    <div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center; flex-direction: column;">
-        <span class="close-lightbox" style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer;" onclick="closeLightbox()">&times;</span>
-        <img id="lightbox-img" src="" alt="Full image" style="max-width: 90%; max-height: 90%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
-        <h3 id="lightbox-title" style="color: white; margin-top: 15px; text-align: center; text-shadow: 1px 1px 2px black;"></h3>
+    <!-- Lightbox Modal Bootstrap -->
+    <div class="modal fade" id="lightbox" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close btn-close-white ms-auto" onclick="closeLightbox()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="lightbox-img" src="" alt="Full image" class="img-fluid rounded-3 shadow-lg">
+                    <h3 id="lightbox-title" class="text-white mt-3 text-center"></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Editar Perfil -->
+    <div class="modal fade" id="modal-editar" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-secondary">
+                    <h2 class="modal-title fs-5">Editar Perfil</h2>
+                    <button type="button" class="btn-close btn-close-white" onclick="fecharEditarModal()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label class="form-label">Nome:</label>
+                    <input type="text" id="edit-nome" class="form-control mb-2">
+                    <label class="form-label">Usuário:</label>
+                    <input type="text" id="edit-usuario" class="form-control mb-2">
+                    <label class="form-label">Bio:</label>
+                    <textarea id="edit-bio" class="form-control mb-2" rows="3"></textarea>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button onclick="salvarPerfil()" class="btn btn-primary w-100">Salvar alterações</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Apagar Perfil -->
+    <div class="modal fade" id="modal-apagar" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-secondary">
+                    <h2 class="modal-title fs-5">Apagar Perfil</h2>
+                    <button type="button" class="btn-close btn-close-white" onclick="fecharApagarModal()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Tem certeza que deseja apagar seu perfil? Esta ação não pode ser desfeita.</p>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button onclick="confirmarApagarPerfil()" class="btn btn-danger w-100">Sim, apagar meu perfil</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

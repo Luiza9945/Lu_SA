@@ -57,7 +57,7 @@
         margin-bottom: 70px;
     }
 
-    
+
 
     .masonry {
         columns: 3;
@@ -115,7 +115,7 @@
         bottom: 0px;
         left: 0;
         right: 0;
-        background: linear-gradient(transparent, rgba(0,0,0,0.7));
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
         color: white;
         padding: 20px 10px;
         font-size: 14px;
@@ -123,7 +123,7 @@
         border-radius: 0;
         opacity: 1;
         z-index: 2;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     }
 
 
@@ -177,26 +177,13 @@
         gap: 40px;
     }
 
-    button {
-        padding: 5px 15px !important;
-        background-color: #0d46af !important;
-        color: #ffffffbd !important;
-        border: 2px solid #140c5e !important;
-    }
-
-    button i{
-     font-size: 15px;
-    }
-
     input[type="text"] {
         font-size: 16px;
         border: none;
         border-radius: 4px;
-        margin: 0 10px;
         width: 100%;
         background-color: #ffffff;
     }
-
 
     .foto-perfil {
         width: 120px;
@@ -210,9 +197,71 @@
         color: #fff;
     }
 
-
     .linha5 h3 {
         color: #ffffffbd;
         font-weight: 400;
+    }
 
+    /* Bootstrap Modal & Dropdown Theme Overrides */
+    .modal-backdrop {
+        --bs-backdrop-opacity: 0.85;
+    }
+
+    .modal-content {
+        background-color: #2a1a5c;
+        border: 2px solid #5e33d4;
+        color: #fff;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-header,
+    .modal-footer {
+        border-color: #5e33d4;
+    }
+
+    .modal .btn-close-white {
+        filter: invert(1) grayscale(100%) brightness(200%);
+    }
+
+    .modal-content .form-label {
+        color: #ccc;
+        font-size: 14px;
+    }
+
+    .modal-content .form-control,
+    .modal-content input,
+    .modal-content textarea {
+        background-color: #1d113f;
+        color: #fff;
+        border: 1px solid #5e33d4;
+        font-size: 14px;
+    }
+
+    .modal-content .form-control:focus,
+    .modal-content input:focus,
+    .modal-content textarea:focus {
+        background-color: #1d113f;
+        color: #fff;
+        border-color: #8b5cf6;
+        box-shadow: none;
+    }
+
+    .dropdown-menu-dark {
+        background-color: #2a1a5c;
+        border: 1px solid #5e33d4;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .dropdown-menu-dark .dropdown-item {
+        color: #fff;
+    }
+
+    .dropdown-menu-dark .dropdown-item:hover {
+        background-color: #5e33d4;
+        color: #fff;
+    }
+
+    .dropdown-menu-dark .dropdown-item.text-danger:hover {
+        background-color: #ff6b6b;
+        color: #fff;
     }

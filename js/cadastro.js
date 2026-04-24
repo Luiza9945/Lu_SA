@@ -44,6 +44,9 @@ function validar() {
         console.log('Total de usuários:', usuarios.length);
         console.log('Todos usuários:', usuarios);
         
+        // Criar sessão do usuário automaticamente após cadastro
+        localStorage.setItem('currentUser', JSON.stringify(novoUsuario));
+        
         // Limpar campos
         nome.value = '';
         usuario.value = '';
@@ -52,7 +55,7 @@ function validar() {
         confirmarSenha.value = '';
         
         alert("✅ Usuário salvo no localStorage! Redirecionando...");
-        window.location.href = "login.html";
+        window.location.href = "home.html";
     } else {
         alert("Verifique se está tudo correto:\n" + erros.join("\n"))
     }
