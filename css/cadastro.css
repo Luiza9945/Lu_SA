@@ -9,7 +9,6 @@
 }
 
 .input-group input {
-    width: 100%;
     border: none;
     border-bottom: 1.5px solid var(--line);
     padding: 10px 5px;
@@ -34,7 +33,7 @@
 .input-group input:valid + label {
     top: -10px;
     font-size: 12px;
-    color: var(--accent);
+    color: #ffffff;
 }
 
 .input-group input:focus {
@@ -46,14 +45,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 101vh;
     flex-direction: column;
 }
 
 form {
     color: rgb(240, 248, 255);
     position: relative;
-    width: fit-content;
+    width: 295.44px;
 }
 
 h1 {
@@ -124,3 +123,124 @@ a {
         transform: rotate(-360deg);
     }
 }
+
+/* --- Fluxo de etapas --- */
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.step-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #444;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.step-dot.active {
+    background-color: #fffb00;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    align-items: center;
+}
+
+.btn-group .btn {
+    flex: 1;
+    margin: 0;
+}
+
+.btn-voltar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1.5px solid rgb(192, 192, 25);
+    background-color: transparent;
+    color: rgb(240, 248, 255);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    flex-shrink: 0;
+}
+
+.btn-voltar:hover {
+    background-color: rgb(192, 192, 25);
+    color: #050511;
+}
+
+.btn-voltar i {
+    font-size: 20px;
+    color: inherit !important;
+}
+
+.foto-perfil-cadastro {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.foto-label {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.foto-perfil-cadastro img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    transition: opacity 0.3s;
+}
+
+.foto-label:hover img {
+    opacity: 0.8;
+}
+
+.camera-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.camera-icon i {
+    font-size: 16px;
+    color: #fff !important;
+}
+
+.foto-texto {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+
+
+

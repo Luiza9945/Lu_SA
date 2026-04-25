@@ -3,11 +3,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentUserStr = localStorage.getItem('currentUser');
     if (currentUserStr) {
         const currentUser = JSON.parse(currentUserStr);
-        const nomeEl = document.querySelector('.linha3 h1');
-        const usuarioEl = document.querySelector('.linha3 p');
-        if (nomeEl) nomeEl.textContent = currentUser.nome;
-        if (usuarioEl) usuarioEl.textContent = '@' + currentUser.usuario;
-        console.log('Perfil atualizado para:', currentUser.nome, currentUser.usuario);
+    const nomeEl = document.querySelector('.linha3 h1');
+    const usuarioEl = document.querySelector('.linha3 p');
+    if (nomeEl) nomeEl.textContent = currentUser.nome;
+    if (usuarioEl) usuarioEl.textContent = '@' + currentUser.usuario;
+
+    // Atualizar foto de perfil
+    const fotoEl = document.querySelector('.foto-perfil img');
+    if (fotoEl) fotoEl.src = currentUser.foto || 'imgs/Usuária.jpg';
+
+    console.log('Perfil atualizado para:', currentUser.nome, currentUser.usuario);
     } else {
         // Se não houver usuário logado, redirecionar para cadastro
         window.location.href = 'cadastro.html';
