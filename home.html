@@ -14,15 +14,15 @@
 <body>
     <header class="d-flex flex-column">
         <div class="linha4">
-            <div class="hashtags d-flex ">
-                <span class="badge bg-transparent text-white me-2 mb-2">#arte</span>
-                <span class="badge bg-transparent text-white me-2 mb-2">#design</span>
-                <span class="badge bg-transparent text-white me-2 mb-2">#ilustração</span>
-                <span class="badge bg-transparent text-white me-2 mb-2">#pintura</span>
-                <span class="badge bg-transparent text-white me-2 mb-2">#escultura</span>
-                
-                <span class="badge bg-transparent text-white me-2 mb-2">#escultura</span>
-            </div>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search">
+                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+        </div>
+
+        <div class="recom">
+            <button  type="submit" class="btn btn-primary w-100   ">Recomendações para você</button>
+            <button  type="submit" class="btn btn-primary  ">Escolher</button>
         </div>
     </header>
 
@@ -30,10 +30,10 @@
         <div class="postagens">
             <div class="masonry">
                 <div class="pin">
-                    <img src="imgs/1.jpg" alt="Arte digital"  onclick="openLightbox(this)">
+                    <img src="imgs/1.jpg" alt="Arte digital" onclick="openLightbox(this)">
                 </div>
                 <div class="pin">
-                    <img src="imgs/2.jpg" alt="Arte digital"  onclick="openLightbox(this)">
+                    <img src="imgs/2.jpg" alt="Arte digital" onclick="openLightbox(this)">
                 </div>
                 <div class="pin">
                     <img src="imgs/3.jpg" alt="Arte digital">
@@ -106,7 +106,7 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
-        <script src="js/home.js"></script>
+    <script src="js/home.js"></script>
 </body>
 
 </html>
