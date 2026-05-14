@@ -1,47 +1,11 @@
-:root {
-    --line: #ffffff;
-    --accent: #00ff88;
-}
-
-.input-group {
-    position: relative;
-    margin-bottom: 25px;
-}
-
-.input-group input {
-    border: none;
-    border-bottom: 1.5px solid var(--line);
-    padding: 10px 5px;
-    font-size: 15px;
-    outline: none;
-    background: transparent;
-    color: rgb(240, 248, 255);
-    transition: all 0.2s ease;
-}
-
-.input-group label {
-    position: absolute;
-    left: 5px;
-    top: 10px;
-    color: #ffffff;
-    font-size: 14px;
-    transition: 0.3s;
-    pointer-events: none;
-}
-
-.input-group input:focus + label,
-.input-group input:valid + label {
-    top: -10px;
-    font-size: 12px;
-    color: #ffffff;
-}
-
-.input-group input:focus {
-    border-bottom: 2px solid var(--accent);
-}
-
 body {
-    background-color: #050511;
+    background: linear-gradient(to bottom,
+            #110A36 15%,
+            #120B3A 25%,
+            #150C42 45%,
+            #190E4E 60%,
+            #1F1263 85%,
+            #311D9C 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,19 +17,6 @@ form {
     color: rgb(240, 248, 255);
     position: relative;
     width: 295.44px;
-}
-
-h1 {
-    color: rgb(240, 248, 255);
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-button.btn {
-    width: 100%;
-    margin:  10px 0 10px 0;
-    background-color: rgb(70, 66, 19) !important;
-    border-color: rgb(192, 192, 25) !important;
 }
 
 .icons {
@@ -101,146 +52,45 @@ a {
     cursor: pointer;
 }
 
-.spinning-circle {
-    position: fixed;
-    top: -450px;
-    right: -350px;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    object-fit: cover;
-    animation: spin 50s linear infinite;
-    z-index: 9999;
-    pointer-events: none;
-    box-shadow: 0 0 20px #1d113f;
-}
 
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(-360deg);
-    }
-}
-
-/* --- Fluxo de etapas --- */
-.step {
-    display: none;
-}
-
-.step.active {
-    display: block;
-}
-
-.step-indicator {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.step-dot {
-    width: 10px;
-    height: 10px;
-    background-color: #444;
-    border-radius: 50%;
-    transition: background-color 0.3s;
-}
-
-.step-dot.active {
-    background-color: #fffb00;
-}
-
-.btn-group {
-    display: flex;
-    gap: 10px;
-    margin: 10px 0;
-    align-items: center;
-}
-
-.btn-group .btn {
-    flex: 1;
-    margin: 0;
-}
-
-.btn-voltar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: 1.5px solid rgb(192, 192, 25);
-    background-color: transparent;
-    color: rgb(240, 248, 255);
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    flex-shrink: 0;
-}
-
-.btn-voltar:hover {
-    background-color: rgb(192, 192, 25);
-    color: #050511;
-}
-
-.btn-voltar i {
-    font-size: 20px;
-    color: inherit !important;
-}
-
-.foto-perfil-cadastro {
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.foto-label {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.foto-perfil-cadastro img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid var(--accent);
-    transition: opacity 0.3s;
-}
-
-.foto-label:hover img {
-    opacity: 0.8;
-}
-
-.camera-icon {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-}
-
-.camera-icon i {
-    font-size: 16px;
+input {
+    margin-top: 30px !important;
+    height: 50px !important;
+    border: 1px solid #8B6CF6 !important;
+    background: none !important;
+    border-radius: 10px !important;
     color: #fff !important;
 }
 
-.foto-texto {
-    font-size: 12px;
-    color: #aaa;
-    margin-top: 8px;
-    margin-bottom: 0;
+
+input::placeholder {
+    color: #ffffffc1 !important;
+    font-size: 20px !important;
 }
 
 
+.form-text a {
+    color: #fff !important;
+    text-decoration: none !important;
+    font-size: 16px !important;
 
+}
 
+.form-text {
+    margin: 10px 0 10px 150px !important;
+}
+
+.btn {
+    font-size: 20px !important;
+    background: #5D33D3 !important;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: none;
+}
+
+p a {
+    color: #01D4A9;
+    text-decoration: none;
+    font-weight: bold;
+}
