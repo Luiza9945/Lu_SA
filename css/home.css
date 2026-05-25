@@ -234,6 +234,7 @@ input {
 form {
     border: #8B6CF6 solid 1px !important;
     border-radius: 10px;
+    color: #fff !important;
 }
 
 ::-webkit-input-placeholder {

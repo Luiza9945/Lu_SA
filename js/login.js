@@ -1,32 +1,33 @@
-let emailLogin = document.querySelector("#email")
-let senhaLogin = document.querySelector("#senha")
-let btnLogin = document.querySelector("#btn")
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form');
+  const emailEl = document.getElementById('email');
+  const senhaEl = document.getElementById('senha');
 
-btnLogin.addEventListener('click', validarLogin)
+  if (!form || !emailEl || !senhaEl) return;
 
-function validarLogin(event) {
-    event.preventDefault()
-    
-    // Debug: mostrar o que foi digitado
-    console.log('Tentativa de login:', {
-        email: emailLogin.value,
-        senha: senhaLogin.value  // não mostra senha completa por segurança, mas confirma digitação
-    });
-    
-    //  BUSCA usuário cadastrado
-    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || []
-    console.log('Usuários cadastrados:', usuarios);
-    
-    const usuario = usuarios.find(u => u.email === emailLogin.value && u.senha === senhaLogin.value)
-    
-    console.log('Usuário encontrado:', usuario);
-    
-    if (usuario) {
-        localStorage.setItem('currentUser', JSON.stringify(usuario));
-        window.location.href = "home.html"
-    } else {
-        alert(" Email ou senha incorretos!")
-        // Limpar senha por segurança
-        senhaLogin.value = '';
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const emailOuUsuario = emailEl.value.trim();
+    const senha = senhaEl.value.trim();
+
+    // Validações básicas
+    if (!emailOuUsuario) {
+      alert('Informe seu e-mail ou usuário.');
+      return;
     }
-}
+
+    if (!senha) {
+      alert('Informe sua senha.');
+      return;
+    }
+
+    // Se passou, aqui você faria a autenticação (localStorage/API)
+    alert('Login validado!');
+
+    // Para aprender depois:
+    // - depois conecte com localStorage (comparar usuário/ senha)
+    // - ou com backend (fetch)
+  });
+});
+

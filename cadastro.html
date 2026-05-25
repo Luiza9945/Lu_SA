@@ -4,76 +4,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/cadastro.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/cadastro.css">
   <title>Cadastro</title>
 </head>
 
 <body>
-    <div class="vlt">
-      <a href="#" id="btnVoltarTopo">
-        <i class="bi bi-arrow-left"></i></a>
-    </div>
 
-<form id="form-login" class="col-md-6 mx-auto">
- 
-  <!-- ETAPA 1: E-mail e Senha -->
-  <div id="step-1" class="step active">
-    <h1>Cadastro</h1>
-    <div class="step-indicator">
-      <span class="step-dot active"></span>
-      <span class="step-dot"></span>
-    </div>
-    <div class="input-group">
-      <input id="email" type="email" class="form-control" required>
-      <label class="form-label">E-mail</label>
-    </div>
-    <div class="input-group">
-      <input id="senha" type="password" class="form-control" required>
-      <label class="form-label">Senha</label>
-    </div>
-    <button id="btnProximo" type="button" class="btn btn-primary w-100">Próximo</button>
-    <p class="text-center">Já possui uma conta? <a href="login.html">Entre</a></p>
-    <p>ou</p>
-    <div class="icons">
-       <i class="bi bi-google"></i>
-       <i class="bi bi-facebook"></i>
-       <i class="bi bi-linkedin"></i>
-       <i class="bi bi-apple"></i>
-    </div>
+  <div class="vlt">
+    <span>
+      <a href="login.html" class="text-decoration-none text-white">
+        <i class="bi bi-arrow-left"></i>
+      </a>
+    </span>
   </div>
 
-  <!-- ETAPA 2: Nome e Usuário -->
-  <div id="step-2" class="step">
-    <div class="foto-perfil-cadastro text-center">
-      <label for="inputFotoPerfil" class="foto-label">
-        <img src="imgs/Usuária.jpg" alt="Foto de perfil" class="rounded-circle" id="previewFotoPerfil">
-        <span class="camera-icon"><i class="bi bi-camera-fill"></i></span>
-      </label>
-      <input type="file" id="inputFotoPerfil" accept="image/*" style="display: none;">
-      <p class="foto-texto">Clique na imagem para escolher foto</p>
-      <div class="step-indicator">
-        <span class="step-dot"></span>
-        <span class="step-dot active"></span>
-      </div>
-    </div>
-    <div class="input-group">
-      <input id="nome" type="text" class="form-control" required>
-      <label class="form-label">Nome</label>
-    </div>
-    <div class="input-group">
-      <input id="usuario" type="text" class="form-control" required>
-      <label class="form-label">Usuário</label>
-    </div>
-    <div class="form-text"><a href="#">Esqueci minha senha</a></div>
-    <button id="btnCadas" type="submit" class="btn btn-primary w-100">Cadastrar</button>
-  </div>
+  <div class="d-flex justify-content-center align-items-center vh-100 p-3">
+    <div class="login-card">
+      
+      <form>
+        <h1 class="fw-semibold mb-4">Cadastro</h1>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+            <input id="nome" type="text" class="form-control fw-light" placeholder="Nome de usuário" required>
+          </div>
 
-</form>
+          <div class="input-group mb-3">
+            <span class="input-group-text"> <i class="bi bi-envelope-fill"></i> </span>
+            <input id="email" type="email" class="form-control fw-light" placeholder="E-mail" required>
+          </div>
+
+          <div class="input-group mb-4">
+            <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+            <input id="senha" type="password" class="form-control fw-light" placeholder="Senha" required>
+          </div>
+          
+
+          <button id="btnCadas" type="submit" class="btn btn-light w-100 text-white fw-semibold mb-3">Cadastrar</button>
+
+          <div class="text-center">
+            <p class="mb-2 text-white">Já possui uma conta?
+              <a href="login.html" class="text-decoration-none fw-bold">Entre</a>
+            </p>
+            <p class="text-white mb-2">ou</p>
+            <div class="icons">
+              <i class="bi bi-google"></i>
+              <i class="bi bi-facebook"></i>
+              <i class="bi bi-linkedin"></i>
+              <i class="bi bi-apple"></i>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
 
   <script src="js/cadastro.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 
 </html>
