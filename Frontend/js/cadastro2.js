@@ -13,6 +13,48 @@ const categorias = [
     "Idiomas"
 ];
 
+// ======================
+// PREVIEW FOTO PERFIL
+// ======================
+const inputFoto = document.getElementById("foto");
+const previewFoto = document.getElementById("previewFoto");
+
+// Gera preview antes do envio do formulário
+if (inputFoto && previewFoto) {
+    let previewUrl = "";
+
+    inputFoto.addEventListener("change", () => {
+        const file = inputFoto.files && inputFoto.files[0] ? inputFoto.files[0] : null;
+
+        // Usuário limpou/nenhuma imagem selecionada
+        if (!file) {
+            if (previewUrl) URL.revokeObjectURL(previewUrl);
+            previewUrl = "";
+
+            previewFoto.src = "";
+            return;
+        }
+
+        if (previewUrl) URL.revokeObjectURL(previewUrl);
+        previewUrl = URL.createObjectURL(file);
+
+        // Trocar a foto principal imediatamente
+        previewFoto.src = previewUrl;
+
+        // Troca a foto principal (#imagemPadrao) para mostrar a imagem escolhida
+        const imagemPadrao = document.getElementById("imagemPadrao");
+        if (imagemPadrao) {
+            imagemPadrao.src = previewUrl;
+        }
+
+        // (Opcional) também atualiza o preview e pode esconder a imagem padrão
+        // mas mantendo o comportamento principal na #imagemPadrao.
+        previewFoto.src = previewUrl;
+    });
+}
+
+
+
 const input = document.getElementById("categoria");
 const sugestoes = document.getElementById("sugestoes");
 
@@ -63,7 +105,12 @@ if (input && sugestoes) {
 // FINALIZAR CADASTRO
 // ======================
 
-async function finalizarCadastro() {
+async function finalizarCadastro(event) {
+
+    // Impede o submit do form recarregar a página
+    if (event && event.preventDefault) {
+        event.preventDefault();
+    }
 
     const dadosConta =
         JSON.parse(
@@ -174,6 +221,6 @@ async function finalizarCadastro() {
     );
 
     window.location.href =
-        "home.html";
+        "./home.html";
 
 }

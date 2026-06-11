@@ -119,7 +119,6 @@ p a {
     height: 120px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid var(--accent);
     transition: opacity 0.3s;
 }
 
@@ -196,8 +195,9 @@ p a {
     justify-content: center;
 
     align-items: center;
+    border: #01D4A9 1px solid;
+        box-shadow: 0 4px 10px #026d575d;
 
-    background: #2d2d2d;
 }
 
 #previewFoto{
@@ -210,9 +210,53 @@ p a {
     display: none;
 }
 
-#imagemPadrao{
+.foto-container{
 
-    width: 60%;
+    position: relative;
 
-    opacity: .7;
+    width: 140px;
+
+    margin: 20px auto;
+
 }
+
+.foto-perfil i{
+
+    font-size: 4rem;
+
+    color: #ffffff;
+
+}
+
+.btn-foto{
+
+    position: absolute;
+
+    right: 5px;
+
+    bottom: 5px;
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #5D33D3;
+
+    color: #01D4A9;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    box-shadow: 0 4px 10px #026d575d;
+
+}
+
