@@ -1,15 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    
+
     width: 100%;
     height: 100vh;
-    background: linear-gradient(to bottom,  #110A36 0%, #140B3F 100%);
+    background: linear-gradient(to bottom, #110A36 0%, #140B3F 100%);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
+
 .linha4 {
-    margin:  20px 16px 0 16px ;
+    margin: 20px 16px 0 16px;
 }
 
 
@@ -25,7 +32,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px;
+    padding: 10px;
     background: linear-gradient(to bottom,
             #4502FF 0%,
             #5D33D3 100%);
@@ -33,9 +40,11 @@ footer {
     position: fixed;
     bottom: 0;
     right: 0;
-    box-shadow: 0 -15px 25px rgba(9, 5, 21, 0.661);
+    z-index: 9999;
+    box-shadow: 0 -15px 25px rgba(9, 5, 21, 0.35);
     border-radius: 20px 20px 0 0;
 }
+
 
 footer nav ul {
     display: flex;
@@ -52,7 +61,7 @@ footer nav li {
 
 
 i {
-    font-size: 25px !important;
+    font-size: 30px;
     color: rgb(240, 248, 255) !important;
     cursor: pointer;
 }
@@ -76,160 +85,40 @@ input[type="text"] {
 }
 
 
-/* Puzzle-like Masonry Grid for Mobile: Variable heights, interlocking like puzzle */
-.postagens {
-    padding: 0 1rem;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.masonry {
-    columns: 4 auto;
-    column-gap: 0.5rem;
-    column-fill: balance;
-    width: 100%;
-}
-
-.pin {
-    break-inside: avoid;
-    margin-bottom: 0.5rem;
-    background: transparent;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
-    position: relative;
-    width: 100%;
-}
-
-.pin::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(145deg, rgba(42, 26, 92, 0.8), rgba(29, 17, 63, 0.8));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
-}
-
-.pin:hover::before {
-    opacity: 1;
-}
-
-.pin:hover {
-    transform: translateY(-4px);
-}
-
-.pin img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.pin:hover img {
-    transform: scale(1.05);
-}
-
-/* Mobile-first: 2 cols on small phone, 4 on wider */
-@media (max-width: 480px) {
-    .masonry {
-        columns: 3;
-    }
-}
-
-@media (min-width: 481px) {
-    .masonry {
-        columns: 4;
-    }
-}
-
-@media (min-width: 768px) {
-    .postagens {
-        padding: 2rem;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .masonry {
-        column-gap: 1rem;
-    }
-}
-
-
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    animation: fadeIn 0.3s ease;
-}
-
-.lightbox-content {
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-    margin: auto;
-    top: 50%;
-    transform: translateY(-50%);
+.recom {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 12px;
+    margin: 16px 16px 0 16px;
+    justify-content: flex-start;
+    overflow-x: auto;
 }
 
-#lightbox-img {
-    max-width: 100%;
-    max-height: 90vh;
-    border-radius: 10px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+.recom .btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
 }
 
 
-/* Animações */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
 
-    to {
-        opacity: 1;
-    }
+.recom button:nth-child(1) {
+    background: #6a34ff10;
+    width: 170px !important;
+    border: #8B6CF6 solid 1px !important;
+    border-radius: 10px !important;
+    color: #e7e0ff !important;
 }
 
-@keyframes zoomIn {
-    from {
-        transform: scale(0.5);
-        opacity: 0;
-    }
 
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+.recom button {
+    background: none;
+    border: #5D33D3 solid 1px !important;
+    border-radius: 10px !important;
+    color: #9583d6 !important;
+
+
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-    .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 15px;
-    }
-}
-
-input {
-    padding: 10px;
-    border-radius: 10px;
-    border: none !important;
-    background: none !important;
-    width: 300px;
-}
 
 form {
     border: #8B6CF6 solid 1px !important;
@@ -237,9 +126,20 @@ form {
     color: #fff !important;
 }
 
+/* estilo do input igual ao exemplo do home.css */
+form input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none !important;
+    background: none !important;
+    width: 300px;
+    color: #ffffffb9 !important;
+}
+
 ::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.753) !important;
 }
+
 
 
 button i {
@@ -255,38 +155,57 @@ button:hover {
     --bs-btn-hover-bg: transparent;
 }
 
-
-.recom {
-    display: flex;
-    margin:  16px;
-    justify-content: space-between;
+/* Galeria estilo home.css (masonry com colunas) */
+.masonry {
+    columns: 3;
+    column-gap: 16px;
 }
 
-.recom button:nth-child(1) {
-    background: none;
-    width: 280px !important;
-    border: #8B6CF6 solid 1px !important;
-    border-radius: 10px !important;
+.pin {
+    break-inside: avoid;
+    margin: 0 0 10px;
 }
 
-
-.recom button:nth-child(2) {
-    background: none;
-    width: 100px !important;
-    border: #5D33D3 solid 1px !important;
-    border-radius: 10px !important;
-    color: #B29CFF !important;
-
-
+.pin img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
 }
 
-.pp {
+@media (min-width: 481px) {
+    .masonry {
+        columns: 4;
+    }
+}
+
+/* Computador: 7 imgs por linha (masonry em colunas) */
+@media (min-width: 992px) {
+    .masonry {
+        columns: 7;
+    }
+}
+
+/* Títulos nas imagens (modelo do perfil) */
+.pin-title {
     font-size: 10px;
     color: #fff;
-    margin: 0 0 10px 4px;
+    padding: 5px 5px 10px 0;
 }
 
-.sla{
+.pin {
+    position: relative;
+    overflow: hidden;
+}
+
+.mais_img{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+}
+
+p{
+    color: #fff;
+    font-size: 20px;
 }
