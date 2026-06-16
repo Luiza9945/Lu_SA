@@ -163,6 +163,16 @@ async function finalizarCadastro(event) {
         return;
     }
 
+    if (!nome ||nome.length > 25) {
+
+        alert(
+            "O nome deve ter menos 20 caracteres."
+        );
+
+        return;
+        
+    }
+
     if (!categoria) {
 
         alert(

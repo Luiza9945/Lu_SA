@@ -22,15 +22,31 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Se passou, aqui você faria a autenticação (localStorage/API)
-    alert('Login validado!');
+    const usuarios =
+      JSON.parse(localStorage.getItem("usuarios")) || [];
 
-    // Redireciona para a página inicial ao concluir o login
-    window.location.href = 'home .html';
+    const usuarioEncontrado =
+      usuarios.find(user =>
+        (user.email === emailOuUsuario ||
+          user.usuario === emailOuUsuario) &&
+        user.senha === senha
+      );
 
-    // Para aprender depois:
-    // - depois conecte com localStorage (comparar usuário/ senha)
-    // - ou com backend (fetch)
+    if (!usuarioEncontrado) {
+      alert("Usuário ou senha inválidos.");
+      return;
+    }
+
+    // Salva sessão atual
+    localStorage.setItem(
+      "currentUser",
+      JSON.stringify(usuarioEncontrado)
+    );
+
+    alert("Login realizado com sucesso!");
+
+    window.location.href =
+      "./home.html";
   });
 });
 

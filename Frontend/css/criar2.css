@@ -71,7 +71,7 @@ body {
 
 /* Títulos dos campos */
 .form-label {
-    color: var(--text-muted) !important;
+    color: #ffffffe9!important;
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 8px;
@@ -80,11 +80,11 @@ body {
 /* Inputs otimizados para toque */
 .form-control {
     width: 100%;
-    background-color: var(--bg-input) !important;
+    background-color: rgba(255, 255, 255, 0.075) !important;
     border: 1px solid var(--border-color) !important;
-    border-radius: var(--radius-input) !important;
+    border-radius: 10px!important;
     padding: 14px 16px !important;
-    color: var(--text-main) !important;
+    color: #ffffffe9 !important;
     font-size: 16px !important; /* previne zoom indesejado */
     outline: none;
     transition: border-color 0.2s, box-shadow 0.2s;
@@ -243,3 +243,4 @@ button {
     border: none !important;
     font-size: 20px !important;
 }
+
