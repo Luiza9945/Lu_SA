@@ -1,58 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Criar Novo Post</title>
+
+    <!-- Bootstrap (onde der para melhorar espaçamentos e componentes) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
     <link rel="stylesheet" href="css/criar.css">
-    <title>Criar post para Projeto</title>
 </head>
 
 <body>
-     <header class="pb-2 ">
-        <div class="linha1 d-flex justify-content-between align-items-center px-3">
-            <div class="voltar">
-                <a href="home.html"><i class="bi bi-arrow-left "></i></a>
-            </div> 
-        </div> 
-    </header>
 
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h2 class="text-white mb-4 text-center">Criar Novo Post</h2>
-                <form id="createPostForm" action="#" method="POST" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <label for="postTitleInput" class="form-label text-white">Nome do post</label>
-                        <input type="text" class="form-control" id="postTitleInput" placeholder="Digite o nome do post" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="postDescriptionTextarea" class="form-label text-white">Descrição</label>
-                        <textarea class="form-control" id="postDescriptionTextarea" rows="3" placeholder="Digite a descrição do post" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="postImage" class="form-label text-white">Imagem</label>
-                        <input type="file" class="form-control" id="postImage" accept="image/*">
-                    </div>
-                    <div class="mb-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="isPrivate">
-                            <label class="form-check-label text-white" for="isPrivate">Privado</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="isInterestProject">
-                            <label class="form-check-label text-white" for="isInterestProject">Projeto de interesse</label>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Criar Post</button>
-                </form>
+    <div class="app-screen">
+        <header class="app-header px-2">
+            <a href="perfil-art.html" class="btn-back" aria-label="Voltar">
+                <i class="bi bi-arrow-left fs-4"></i>
+            </a>
+            <h1 class="m-0">Criar Novo Post</h1>
+            <div class="header-spacer"></div>
+        </header>
+
+        <form id="createPostForm" class="app-content" novalidate>
+
+
+            <div class="mb-3">
+                <label for="postTitleInput" class="form-label">Nome do post</label>
+                <input type="text" id="postTitleInput" class="form-control" placeholder="Digite o nome do post">
             </div>
-        </div>
+
+            <div class="mb-3">
+                <label for="postDescriptionTextarea" class="form-label">Descrição</label>
+                <textarea id="postDescriptionTextarea" class="form-control" rows="4" placeholder="Digite a descrição do post"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="postImage" class="form-label">Imagem</label>
+
+                <div class="file-dropzone">
+                    <input type="file" id="postImage" accept="image/*">
+
+                    <div class="file-content" id="fileDefaultContent">
+                        <i class="bi bi-image file-icon"></i>
+                        <span class="file-custom">Escolher arquivo...</span>
+                    </div>
+
+                    <img id="imagePreview" class="image-preview-thumbnail" src="" alt="Preview do Post" style="display: none;">
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <div class="toggle-container">
+                    <span>Privado</span>
+                    <input class="form-check-input" type="checkbox" id="isPrivate">
+                </div>
+
+                <div class="toggle-container mt-1">
+                    <span>Projeto de interesse</span>
+                    <input class="form-check-input" type="checkbox" id="isInterestProject">
+                </div>
+
+            </div>
+
+            <button type="submit" id="" class="btn-submit btn btn-primary w-100">Criar Post</button>
+        </form>
     </div>
-    <script src="js/criar.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+        <script src="js/criar.js"></script>
 </body>
 
 </html>
+

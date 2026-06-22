@@ -1,15 +1,17 @@
 
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 CREATE TABLE usuario (
     id_user UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     nome TEXT NOT NULL,
     user_name TEXT UNIQUE NOT NULL,
     senha TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
-	categoria TEXT NOT NULL,
-	quanti_post INT DEFAULT 0,
-	biografia TEXT 
-	
+    categoria TEXT NOT NULL,
+    quanti_post INT DEFAULT 0,
+    biografia TEXT
 );
+
 
 CREATE TABLE postagem (
     id_post UUID PRIMARY KEY DEFAULT uuid_generate_v4(),

@@ -1,23 +1,36 @@
-import pg from 'pg' ;
-import 'dotenv/config'
+import pg from 'pg';
+import 'dotenv/config';
 
-const { Pool } = pg
- 
+const { Pool } = pg;
+
+function requiredEnv(name) {
+  const value = process.env[name];
+  if (value === undefined || value === null || value === '') {
+    throw new Error(`Variável de ambiente não definida: ${name}`);
+  }
+  return value;
+}
+
 export const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT  // ✅ adiciona essa linha
-})
-
-pool.on('error', (err, client) => {
-  console.error('Unexpected error on idle client', err)
-  process.exit(-1)
-})
-
-pool.connect().then(() => {
-  console.log("Conectado");
+  user: requiredEnv('DB_USER'),
+  host: requiredEnv('DB_HOST'),
+  password: requiredEnv('DB_PASSWORD'),
+  database: requiredEnv('DB_NAME'),
+  port: Number(process.env.DB_PORT)
 });
 
-console.log(process.env.DB_PASSWORD);
+pool.on('error', (err) => {
+  console.error('Unexpected error on idle client', err);
+  process.exit(-1);
+});
+
+pool
+  .connect()
+  .then(() => {
+    console.log('Conectado');
+  })
+  .catch((err) => {
+    console.error('Falha ao conectar no banco:', err);
+    process.exit(1);
+  });
+

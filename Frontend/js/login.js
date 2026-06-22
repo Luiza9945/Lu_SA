@@ -5,15 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!form || !emailEl || !senhaEl) return;
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const emailOuUsuario = emailEl.value.trim();
+    const email = emailEl.value.trim();
     const senha = senhaEl.value.trim();
 
-    // Validações básicas
-    if (!emailOuUsuario) {
-      alert('Informe seu e-mail ou usuário.');
+    if (!email) {
+      alert('Informe seu e-mail.');
       return;
     }
 
@@ -22,31 +21,27 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const usuarios =
-      JSON.parse(localStorage.getItem("usuarios")) || [];
+    try {
+      const resp = await fetch('http://localhost:3000/usuarios/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, senha })
+      });
 
-    const usuarioEncontrado =
-      usuarios.find(user =>
-        (user.email === emailOuUsuario ||
-          user.usuario === emailOuUsuario) &&
-        user.senha === senha
-      );
+      const data = await resp.json().catch(() => ({}));
 
-    if (!usuarioEncontrado) {
-      alert("Usuário ou senha inválidos.");
-      return;
+      if (!resp.ok) {
+        alert(data?.message || 'Login inválido.');
+        return;
+      }
+
+      // backend retorna { message: ... }
+      alert(data?.message || 'Login realizado com sucesso!');
+      window.location.href = './home.html';
+    } catch (err) {
+      console.error(err);
+      alert('Falha ao conectar no servidor.');
     }
-
-    // Salva sessão atual
-    localStorage.setItem(
-      "currentUser",
-      JSON.stringify(usuarioEncontrado)
-    );
-
-    alert("Login realizado com sucesso!");
-
-    window.location.href =
-      "./home.html";
   });
 });
 
