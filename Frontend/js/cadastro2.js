@@ -119,7 +119,7 @@ async function finalizarCadastro(event) {
   if (foto?.name) payload.fotoPerfil = foto.name;
 
   try {
-    const resp = await fetch('/usuarios/cadastro', {
+    const resp = await fetch('http://localhost:3000/usuarios/cadastro', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
