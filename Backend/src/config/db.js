@@ -21,6 +21,7 @@ export const pool = new Pool({
 
 pool.on('error', (err) => {
   console.error('Unexpected error on idle client', err);
+  console.log('process.exit(-1) será executado');
   process.exit(-1);
 });
 
@@ -31,6 +32,8 @@ pool
   })
   .catch((err) => {
     console.error('Falha ao conectar no banco:', err);
+    console.log('process.exit(1) será executado');
     process.exit(1);
   });
+
 

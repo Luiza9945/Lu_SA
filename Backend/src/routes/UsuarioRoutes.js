@@ -16,16 +16,19 @@ usuarioRouter.get('/', async (req, res) => {
 
 // POST /login (rotas fixas devem vir antes de /:id)
 usuarioRouter.post('/login', async (req, res) => {
-
+    console.log('POST /usuarios/login recebido');
     console.log('=== ROTA LOGIN EXECUTADA ===');
   try {
     const { email, senha } = req.body;
+
 
     if (!email || !senha) {
       return res.status(400).json({ message: 'email e senha são obrigatórios' });
     }
 
+    console.log('Antes de chamar UsuarioService.login()');
     const result = await UsuarioService.login({ email, senha });
+
 
     if (!result.success) {
       return res.status(401).json({ message: result.message });
