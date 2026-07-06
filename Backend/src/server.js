@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const port = 3000;
+const port = 3005;
 
 app.use(express.json());
 
@@ -35,6 +35,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/usuarios', usuarioRouter);
+app.use('/login', usuarioRouter);
 
 app.listen(port, () => {
   console.log(`Esta indo bem http://localhost:${port}`);

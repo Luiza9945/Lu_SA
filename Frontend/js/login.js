@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      const resp = await fetch('http://localhost:3000/usuarios/login', {
+      const resp = await fetch('http://localhost:3005/usuarios/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, senha })
@@ -35,35 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // backend retorna { success, message }
       alert(data?.message || 'Login realizado com sucesso!');
 
-      // Unificar sessão para o perfil-art.js (ele depende de localStorage.currentUser)
+      // Monta currentUser com os dados retornados pela API (vem do PostgreSQL)
       try {
-        // 1) Preferir localStorage.usuarios, se existir
-        let usuarios = [];
-        try {
-          usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
-        } catch {
-          usuarios = [];
-        }
-
-        let usuarioEncontrado = usuarios.find(u => u.email === email);
-
-        // 2) Se não existir no localStorage, buscar no backend
-        if (!usuarioEncontrado) {
-          const respUsuarios = await fetch('http://localhost:3000/usuarios');
-          if (respUsuarios.ok) {
-            const lista = await respUsuarios.json();
-            usuarioEncontrado = (lista || []).find(u => u.email === email);
-          }
-        }
-
-        if (usuarioEncontrado) {
-          localStorage.setItem('currentUser', JSON.stringify(usuarioEncontrado));
+        if (data?.user) {
+          localStorage.setItem('currentUser', JSON.stringify(data.user));
         } else {
-          console.warn('Usuário não encontrado para montar currentUser no login. Email:', email);
-          // Mantém o fluxo mesmo sem currentUser (o perfil vai redirecionar se não existir)
+          console.warn('API não retornou user no login');
         }
       } catch (e) {
         console.warn('Falha ao montar currentUser após login:', e);

@@ -34,7 +34,8 @@ usuarioRouter.post('/login', async (req, res) => {
       return res.status(401).json({ message: result.message });
     }
 
-    return res.json({ message: result.message });
+    // Retorna o usuário para a tela de perfil
+    return res.json({ message: result.message, user: result.user });
   } catch (error) {
     console.error('Erro no login:', error);
     return res.status(500).json({ message: error.message });
@@ -44,13 +45,22 @@ usuarioRouter.post('/login', async (req, res) => {
 // POST /cadastro
 usuarioRouter.post('/cadastro', async (req, res) => {
   try {
-    const { nome, email, senha } = req.body;
+    const { nome, email, senha, categoria, biografia } = req.body;
 
     if (!nome || !email || !senha) {
       return res.status(400).json({ message: 'nome, email e senha são obrigatórios' });
     }
 
-    const usuario = await UsuarioService.cadastro({ nome, email, senha });
+    // categoria/biografia são esperados no perfil
+    const payload = {
+      nome,
+      email,
+      senha,
+      categoria: categoria ?? 'user',
+      biografia: biografia ?? null
+    };
+
+    const usuario = await UsuarioService.cadastro(payload);
     return res.status(201).json(usuario);
   } catch (error) {
     if (error?.code === 'EMAIL_EXISTS') {
@@ -64,6 +74,11 @@ usuarioRouter.post('/cadastro', async (req, res) => {
 // GET /usuarios/:id
 usuarioRouter.get('/:id', async (req, res) => {
   try {
+    // Evita que rotas literais (ex: /usuarios/login) sejam interpretadas como UUID
+    if (req.params.id === 'login' || req.params.id === 'cadastro') {
+      return res.status(404).json({ message: 'Rota inválida' });
+    }
+
     const usuario = await UsuarioService.getById(req.params.id);
     if (!usuario) return res.status(404).json({ message: 'Não encontrado' });
     return res.json(usuario);
